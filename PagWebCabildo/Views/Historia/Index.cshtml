@@ -1,0 +1,22 @@
+@model PagWebCabildo.Models.Entidades.PresentacionResguardo
+@{
+    ViewData["Title"] = "Historia y presentación";
+}
+
+<div class="container">
+    <h1>Historia y presentación del resguardo</h1>
+
+    @if (string.IsNullOrWhiteSpace(Model?.Texto))
+    {
+        <p class="text-muted">Aún no se ha publicado el texto de presentación del resguardo.</p>
+    }
+    else
+    {
+        <div class="historia-texto">
+            @foreach (var parrafo in Model.Texto.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+            {
+                <p>@parrafo.Trim()</p>
+            }
+        </div>
+    }
+</div>

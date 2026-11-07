@@ -1,0 +1,120 @@
+@model PagWebCabildo.Models.ViewModels.InicioViewModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+@* ─── HERO ─── *@
+<div class="rib-hero">
+    <div class="rib-hero-bg"></div>
+    <div class="rib-hero-inner">
+        <img src="~/img/sello.png" alt="Sello del Resguardo" class="rib-hero-sello" onerror="this.style.display='none'"/>
+        <p class="rib-subtitulo">Pueblo Pijao · Natagaima, Tolima</p>
+        <h1>Resguardo <em>Rincón Bodega</em></h1>
+        <div class="rib-linea"></div>
+        <p>Guardianes del territorio, la cultura y la memoria ancestral.</p>
+    </div>
+</div>
+
+@* ─── HISTORIA / PRESENTACIÓN ─── *@
+<div class="rib-sep"></div>
+<section class="rib-section">
+    <div class="rib-section-inner reveal">
+        <div>
+            <div class="rib-numero">01</div>
+            <span class="rib-label">Raíces</span>
+            <h2>Nuestra <em>Historia</em></h2>
+        </div>
+        <div class="rib-contenido">
+            @if (!string.IsNullOrWhiteSpace(Model.Presentacion))
+            {
+                <p>@Model.Presentacion</p>
+            }
+            else
+            {
+                <p>Comunidad del pueblo Pijao, custodia de una memoria viva que se teje entre generaciones, tradiciones y la sabiduría de la tierra.</p>
+            }
+            <a asp-controller="Historia" asp-action="Index" class="btn btn-light">Leer más</a>
+        </div>
+    </div>
+</section>
+
+@* ─── EVENTOS ─── *@
+<div class="rib-sep"></div>
+<section class="rib-section">
+    <div class="rib-section-inner reverse reveal">
+        <div class="rib-contenido">
+            @if (Model.UltimosEventos.Count == 0)
+            {
+                <p class="rib-vacio">No hay eventos registrados por el momento.</p>
+            }
+            else
+            {
+                <ul class="rib-lista">
+                    @foreach (var evento in Model.UltimosEventos)
+                    {
+                        <li>
+                            <div class="rib-fecha">@evento.Fecha.ToString("dd 'de' MMMM, yyyy") · @evento.Hora.ToString("HH:mm")</div>
+                            <a asp-controller="Eventos" asp-action="Detalle" asp-route-id="@evento.Id">@evento.Titulo</a>
+                            @if (evento.Cancelado)
+                            {
+                                <span class="badge bg-danger">Cancelado</span>
+                            }
+                        </li>
+                    }
+                </ul>
+                <a asp-controller="Eventos" asp-action="Index" class="rib-mas">Ver todos los eventos →</a>
+            }
+        </div>
+        <div>
+            <div class="rib-numero">02</div>
+            <span class="rib-label">Agenda</span>
+            <h2>Próximos <em>Eventos</em></h2>
+        </div>
+    </div>
+</section>
+
+@* ─── COMUNICADOS ─── *@
+<div class="rib-sep"></div>
+<section class="rib-section">
+    <div class="rib-section-inner reveal">
+        <div>
+            <div class="rib-numero">03</div>
+            <span class="rib-label">Voz</span>
+            <h2>Últimos <em>Comunicados</em></h2>
+        </div>
+        <div class="rib-contenido">
+            @if (Model.UltimosComunicados.Count == 0)
+            {
+                <p class="rib-vacio">No hay comunicados publicados por el momento.</p>
+            }
+            else
+            {
+                <ul class="rib-lista">
+                    @foreach (var comunicado in Model.UltimosComunicados)
+                    {
+                        <li>
+                            <div class="rib-fecha">@comunicado.Fecha.ToString("dd 'de' MMMM, yyyy")</div>
+                            <a asp-controller="Comunicados" asp-action="Detalle" asp-route-id="@comunicado.Id">@comunicado.Titulo</a>
+                        </li>
+                    }
+                </ul>
+                <a asp-controller="Comunicados" asp-action="Index" class="rib-mas">Ver todos los comunicados →</a>
+            }
+        </div>
+    </div>
+</section>
+
+@* ─── ACCESOS ─── *@
+<div class="rib-sep"></div>
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Explora</span>
+        <h2>El <em>Resguardo</em></h2>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a asp-controller="Organizacion" asp-action="Index" class="btn btn-primary">Organización</a>
+            <a asp-controller="Galeria" asp-action="Index" class="btn btn-primary">Galería</a>
+            <a asp-controller="Documentos" asp-action="Index" class="btn btn-primary">Documentos</a>
+            <a asp-controller="Contacto" asp-action="Index" class="btn btn-primary">Contacto</a>
+        </div>
+    </div>
+</section>

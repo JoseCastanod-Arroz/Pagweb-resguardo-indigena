@@ -1,0 +1,42 @@
+@using PagWebCabildo.Models.Entidades
+@model IReadOnlyList<TemaGaleria>
+@{
+    ViewData["Title"] = "Galería";
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Imágenes · Memoria</span>
+        <h2>Galería <em>Multimedia</em></h2>
+        <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">
+            Momentos, paisajes y vida comunitaria del Resguardo Indígena Rincón Bodega.
+        </p>
+    </div>
+
+    @if (Model is null || Model.Count == 0)
+    {
+        <p class="rib-vacio text-center mt-4">Aún no hay temas en la galería.</p>
+    }
+    else
+    {
+        <div class="rib-temas-grid reveal">
+            @foreach (var tema in Model)
+            {
+                <a class="rib-tema-item @(string.IsNullOrWhiteSpace(tema.PortadaRuta) ? "sin-portada" : "")"
+                   asp-controller="Galeria" asp-action="Tema" asp-route-id="@tema.Id">
+                    @if (!string.IsNullOrWhiteSpace(tema.PortadaRuta))
+                    {
+                        <img src="~/@tema.PortadaRuta" alt="@tema.Nombre"/>
+                    }
+                    <span class="rib-tema-overlay">
+                        <span class="rib-tema-nombre">@tema.Nombre</span>
+                        @if (!string.IsNullOrWhiteSpace(tema.Descripcion))
+                        {
+                            <span class="rib-tema-desc">@tema.Descripcion</span>
+                        }
+                    </span>
+                </a>
+            }
+        </div>
+    }
+</section>

@@ -1,0 +1,64 @@
+@using PagWebCabildo.Models.Entidades
+@using System.Globalization
+@model IReadOnlyList<Evento>
+@{
+    ViewData["Title"] = "Eventos";
+    var cultura = new CultureInfo("es-CO");
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Agenda</span>
+        <h2>Nuestros <em>Eventos</em></h2>
+        <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">
+            Encuentros, mingas y celebraciones de la comunidad del Resguardo Indígena Rincón Bodega.
+        </p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="rib-vacio text-center mt-4">No hay eventos disponibles por el momento.</p>
+    }
+    else
+    {
+        <div class="rib-eventos-grid reveal">
+            @foreach (var evento in Model)
+            {
+                var mes = cultura.DateTimeFormat.GetAbbreviatedMonthName(evento.Fecha.Month).TrimEnd('.');
+                <article class="rib-evento-card @(evento.Cancelado ? "cancelado" : "")">
+                    <div class="rib-evento-media"
+                         @(string.IsNullOrWhiteSpace(evento.ImagenRuta) ? "" : $"style=background-image:url('/{evento.ImagenRuta}')")>
+                        <div class="rib-evento-dia">
+                            <span class="rib-dia-num">@evento.Fecha.Day</span>
+                            <span class="rib-dia-mes">@mes</span>
+                        </div>
+                    </div>
+                    <div class="rib-evento-body">
+                        <h3>
+                            <a asp-controller="Eventos" asp-action="Detalle" asp-route-id="@evento.Id">@evento.Titulo</a>
+                            @if (evento.Cancelado)
+                            {
+                                <span class="rib-evento-badge-cancelado">Cancelado</span>
+                            }
+                        </h3>
+                        <div class="rib-evento-meta">
+                            <span>🕑 @evento.Hora.ToString("HH:mm")</span>
+                            @if (!string.IsNullOrWhiteSpace(evento.Lugar))
+                            {
+                                <span>📍 @evento.Lugar</span>
+                            }
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(evento.Descripcion))
+                        {
+                            var resumen = evento.Descripcion.Length > 130
+                                ? evento.Descripcion.Substring(0, 130).TrimEnd() + "…"
+                                : evento.Descripcion;
+                            <p class="rib-evento-desc">@resumen</p>
+                        }
+                        <a asp-controller="Eventos" asp-action="Detalle" asp-route-id="@evento.Id" class="rib-mas">Ver detalle →</a>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+</section>

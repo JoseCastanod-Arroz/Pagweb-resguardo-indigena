@@ -1,0 +1,19 @@
+@using PagWebCabildo.Models.Entidades
+@model ElementoGaleria
+@{
+    ViewData["Title"] = "Foto";
+}
+
+<section class="rib-section" style="text-align:center;">
+    <div class="reveal">
+        <img src="~/@Model.ArchivoRuta" alt="@Model.Descripcion"
+             style="max-width:100%;max-height:72vh;border-radius:10px;border:1px solid var(--borde);"/>
+        @if (!string.IsNullOrWhiteSpace(Model.Descripcion))
+        {
+            <p class="rib-contenido" style="max-width:640px;margin:1.25rem auto 0;">@Model.Descripcion</p>
+        }
+        <p class="mt-3">
+            <a asp-controller="Galeria" asp-action="Tema" asp-route-id="@Model.TemaGaleriaId" class="rib-mas">← Volver al tema</a>
+        </p>
+    </div>
+</section>

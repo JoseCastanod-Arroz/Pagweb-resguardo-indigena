@@ -1,0 +1,110 @@
+@model IReadOnlyList<PagWebCabildo.Models.Entidades.Autoridad>
+@{
+    ViewData["Title"] = "Organización del resguardo";
+
+    // Jerarquía según el Reglamento Interno: el primer registro (Orden 1) es la
+    // cabeza (Gobernador), el segundo el suplente, y el resto conforma el cabildo.
+    var lista = (Model ?? new List<PagWebCabildo.Models.Entidades.Autoridad>()).ToList();
+    var principal = lista.Count > 0 ? lista[0] : null;
+    var suplente = lista.Count > 1 ? lista[1] : null;
+    var resto = lista.Count > 2 ? lista.Skip(2).ToList() : new List<PagWebCabildo.Models.Entidades.Autoridad>();
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Gobierno Propio</span>
+        <h2>La <em>Organización</em></h2>
+        <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">
+            Estructura del cabildo del Resguardo Indígena Rincón Bodega.
+            Selecciona un cargo para conocer su función según el Reglamento Interno.
+        </p>
+    </div>
+
+    @if (lista.Count == 0)
+    {
+        <p class="rib-vacio text-center mt-4">Aún no se han registrado autoridades, cargos ni comités.</p>
+    }
+    else
+    {
+        <div class="rib-org reveal mt-5">
+            @if (principal is not null)
+            {
+                <div class="rib-org-nivel">
+                    <div class="rib-cargo rib-principal" role="button" tabindex="0"
+                         data-cargo="@principal.Cargo" data-nombre="@principal.Nombre" data-funcion="@principal.Funcion">
+                        <div class="rib-cargo-titulo">@principal.Cargo</div>
+                        <div class="rib-cargo-nombre">@principal.Nombre</div>
+                    </div>
+                </div>
+            }
+
+            @if (suplente is not null)
+            {
+                <div class="rib-org-nivel">
+                    <div class="rib-cargo" role="button" tabindex="0"
+                         data-cargo="@suplente.Cargo" data-nombre="@suplente.Nombre" data-funcion="@suplente.Funcion">
+                        <div class="rib-cargo-titulo">@suplente.Cargo</div>
+                        <div class="rib-cargo-nombre">@suplente.Nombre</div>
+                    </div>
+                </div>
+            }
+
+            @if (resto.Count > 0)
+            {
+                <div class="rib-org-nivel">
+                    @foreach (var cargo in resto)
+                    {
+                        <div class="rib-cargo" role="button" tabindex="0"
+                             data-cargo="@cargo.Cargo" data-nombre="@cargo.Nombre" data-funcion="@cargo.Funcion">
+                            <div class="rib-cargo-titulo">@cargo.Cargo</div>
+                            <div class="rib-cargo-nombre">@cargo.Nombre</div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="rib-org-detalle" id="rib-detalle" aria-live="polite">
+                <p class="rib-det-placeholder">Selecciona un cargo para ver su función dentro del cabildo.</p>
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+<script>
+    (function () {
+        const detalle = document.getElementById('rib-detalle');
+        const cargos = document.querySelectorAll('.rib-cargo');
+
+        function mostrar(el) {
+            cargos.forEach(c => c.classList.remove('activo'));
+            el.classList.add('activo');
+
+            const cargo = el.getAttribute('data-cargo') || '';
+            const nombre = el.getAttribute('data-nombre') || '';
+            const funcion = (el.getAttribute('data-funcion') || '').trim();
+
+            detalle.innerHTML =
+                '<div class="rib-det-cargo"></div>' +
+                '<div class="rib-det-nombre"></div>' +
+                '<p class="rib-det-funcion"></p>';
+            detalle.querySelector('.rib-det-cargo').textContent = cargo;
+            detalle.querySelector('.rib-det-nombre').textContent = nombre;
+            const pf = detalle.querySelector('.rib-det-funcion');
+            if (funcion) {
+                pf.textContent = funcion;
+            } else {
+                pf.className = 'rib-det-placeholder';
+                pf.textContent = 'Función pendiente de describir.';
+            }
+        }
+
+        cargos.forEach(el => {
+            el.addEventListener('click', () => mostrar(el));
+            el.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mostrar(el); }
+            });
+        });
+    })();
+</script>
+}

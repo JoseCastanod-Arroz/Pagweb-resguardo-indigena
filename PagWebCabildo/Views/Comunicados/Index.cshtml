@@ -1,0 +1,43 @@
+@using System.Globalization
+@model IReadOnlyList<PagWebCabildo.Models.Entidades.Comunicado>
+@{
+    ViewData["Title"] = "Comunicados";
+    var cultura = new CultureInfo("es-CO");
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Voz del Cabildo</span>
+        <h2>Nuestros <em>Comunicados</em></h2>
+        <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">
+            Anuncios, convocatorias y mensajes oficiales del Resguardo Indígena Rincón Bodega.
+        </p>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <p class="rib-vacio text-center mt-4">No hay comunicados publicados por el momento.</p>
+    }
+    else
+    {
+        <div class="rib-comunicados-grid reveal">
+            @foreach (var comunicado in Model)
+            {
+                <article class="rib-comunicado-card">
+                    <div class="rib-comunicado-fecha">@comunicado.Fecha.ToString("dd 'de' MMMM, yyyy", cultura)</div>
+                    <h3>
+                        <a asp-controller="Comunicados" asp-action="Detalle" asp-route-id="@comunicado.Id">@comunicado.Titulo</a>
+                    </h3>
+                    @if (!string.IsNullOrWhiteSpace(comunicado.Contenido))
+                    {
+                        var extracto = comunicado.Contenido.Length > 160
+                            ? comunicado.Contenido.Substring(0, 160).TrimEnd() + "…"
+                            : comunicado.Contenido;
+                        <p class="rib-comunicado-extracto">@extracto</p>
+                    }
+                    <a asp-controller="Comunicados" asp-action="Detalle" asp-route-id="@comunicado.Id" class="rib-mas">Leer comunicado →</a>
+                </article>
+            }
+        </div>
+    }
+</section>

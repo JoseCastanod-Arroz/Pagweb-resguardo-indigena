@@ -1,0 +1,89 @@
+@model PagWebCabildo.Models.ViewModels.ContactoViewModel
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<div class="container">
+    <h1>Contacto</h1>
+
+    @if (TempData["MensajeExito"] is string mensajeExito)
+    {
+        <div class="alert alert-success" role="alert">
+            @mensajeExito
+        </div>
+    }
+
+    <section class="mb-4">
+        <h2>Información de contacto del cabildo</h2>
+        <dl class="row">
+            @if (!string.IsNullOrWhiteSpace(Model.Informacion.Direccion))
+            {
+                <dt class="col-sm-3">Dirección</dt>
+                <dd class="col-sm-9">@Model.Informacion.Direccion</dd>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Informacion.Telefono))
+            {
+                <dt class="col-sm-3">Teléfono</dt>
+                <dd class="col-sm-9">@Model.Informacion.Telefono</dd>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Informacion.CorreoElectronico))
+            {
+                <dt class="col-sm-3">Correo electrónico</dt>
+                <dd class="col-sm-9">@Model.Informacion.CorreoElectronico</dd>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Informacion.OtrosDatos))
+            {
+                <dt class="col-sm-3">Otros datos</dt>
+                <dd class="col-sm-9">@Model.Informacion.OtrosDatos</dd>
+            }
+        </dl>
+        @if (string.IsNullOrWhiteSpace(Model.Informacion.Direccion)
+            && string.IsNullOrWhiteSpace(Model.Informacion.Telefono)
+            && string.IsNullOrWhiteSpace(Model.Informacion.CorreoElectronico)
+            && string.IsNullOrWhiteSpace(Model.Informacion.OtrosDatos))
+        {
+            <p class="text-muted">Aún no se ha registrado información de contacto.</p>
+        }
+    </section>
+
+    <section>
+        <h2>Envíanos un mensaje</h2>
+
+        <form asp-controller="Contacto" asp-action="Enviar" method="post">
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Formulario.Nombre" class="form-label"></label>
+                <input asp-for="Formulario.Nombre" class="form-control" />
+                <span asp-validation-for="Formulario.Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Formulario.MedioContacto" class="form-label"></label>
+                <input asp-for="Formulario.MedioContacto" class="form-control"
+                       placeholder="Correo (nombre@@dominio.ext) o teléfono (7 a 15 dígitos)" />
+                <span asp-validation-for="Formulario.MedioContacto" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Formulario.Asunto" class="form-label"></label>
+                <input asp-for="Formulario.Asunto" class="form-control" />
+                <span asp-validation-for="Formulario.Asunto" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Formulario.Mensaje" class="form-label"></label>
+                <textarea asp-for="Formulario.Mensaje" class="form-control" rows="6"></textarea>
+                <span asp-validation-for="Formulario.Mensaje" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </section>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

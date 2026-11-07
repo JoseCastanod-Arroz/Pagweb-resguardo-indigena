@@ -1,0 +1,97 @@
+@using PagWebCabildo.Models.Entidades
+@model TemaGaleria
+@{
+    ViewData["Title"] = Model.Nombre;
+    var fotos = Model.Elementos?.Where(e => e.Tipo == TipoElemento.Foto).ToList() ?? new List<ElementoGaleria>();
+    var videos = Model.Elementos?.Where(e => e.Tipo == TipoElemento.Video).ToList() ?? new List<ElementoGaleria>();
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Tema</span>
+        <h2>@Model.Nombre</h2>
+        @if (!string.IsNullOrWhiteSpace(Model.Descripcion))
+        {
+            <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">@Model.Descripcion</p>
+        }
+        <a asp-controller="Galeria" asp-action="Index" class="rib-mas d-inline-block mt-3">← Volver a la galería</a>
+    </div>
+
+    @if (fotos.Count == 0 && videos.Count == 0)
+    {
+        <p class="rib-vacio text-center mt-4">Este tema aún no tiene fotos ni videos.</p>
+    }
+
+    @if (fotos.Count > 0)
+    {
+        <div class="rib-masonry reveal">
+            @foreach (var foto in fotos)
+            {
+                <div class="rib-masonry-item"
+                     data-img="@Url.Content("~/" + foto.ArchivoRuta)"
+                     data-cap="@foto.Descripcion">
+                    <img src="~/@foto.ArchivoRuta" alt="@foto.Descripcion" loading="lazy"/>
+                    <div class="rib-ovl">
+                        @if (!string.IsNullOrWhiteSpace(foto.Descripcion))
+                        {
+                            <span class="rib-ovl-cap">@foto.Descripcion</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    @if (videos.Count > 0)
+    {
+        <div class="reveal mt-5">
+            <span class="rib-label">Registro en Video</span>
+            <div class="rib-videos-grid">
+                @foreach (var video in videos)
+                {
+                    <div class="rib-video-card">
+                        <video controls preload="metadata">
+                            <source src="@Url.Content("~/" + video.ArchivoRuta)"/>
+                            Su navegador no admite la reproducción de video.
+                        </video>
+                        @if (!string.IsNullOrWhiteSpace(video.Descripcion))
+                        {
+                            <div class="rib-video-info"><p>@video.Descripcion</p></div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</section>
+
+@* Lightbox para ampliar fotos *@
+<div class="rib-lightbox" id="rib-lightbox" role="dialog" aria-modal="true">
+    <button class="rib-lb-cerrar" id="rib-lb-cerrar" aria-label="Cerrar">&times;</button>
+    <img id="rib-lb-img" src="" alt=""/>
+    <div class="rib-lb-cap" id="rib-lb-cap"></div>
+</div>
+
+@section Scripts {
+<script>
+    (function () {
+        const lb = document.getElementById('rib-lightbox');
+        const lbImg = document.getElementById('rib-lb-img');
+        const lbCap = document.getElementById('rib-lb-cap');
+        const cerrar = () => { lb.classList.remove('abierto'); lbImg.src = ''; };
+
+        document.querySelectorAll('.rib-masonry-item').forEach(item => {
+            item.addEventListener('click', () => {
+                lbImg.src = item.getAttribute('data-img') || '';
+                lbImg.alt = item.getAttribute('data-cap') || '';
+                lbCap.textContent = item.getAttribute('data-cap') || '';
+                lb.classList.add('abierto');
+            });
+        });
+
+        document.getElementById('rib-lb-cerrar').addEventListener('click', cerrar);
+        lb.addEventListener('click', e => { if (e.target === lb) cerrar(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+    })();
+</script>
+}

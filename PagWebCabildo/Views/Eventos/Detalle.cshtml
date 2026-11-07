@@ -1,0 +1,35 @@
+@using PagWebCabildo.Models.Entidades
+@model Evento
+@{
+    ViewData["Title"] = Model.Titulo;
+}
+
+<h1>
+    @Model.Titulo
+    @if (Model.Cancelado)
+    {
+        <span class="badge bg-danger">Cancelado</span>
+    }
+</h1>
+
+@if (Model.Cancelado)
+{
+    <div class="alert alert-danger" role="alert">
+        Este evento ha sido cancelado.
+    </div>
+}
+
+<p><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
+<p><strong>Hora:</strong> @Model.Hora.ToString("HH:mm")</p>
+<p><strong>Lugar:</strong> @Model.Lugar</p>
+
+@if (Model.ImagenRuta is not null)
+{
+    <img src="~/@Model.ImagenRuta" alt="@Model.Titulo" class="img-fluid" />
+}
+
+<div class="mt-3">
+    <p>@Model.Descripcion</p>
+</div>
+
+<p><a asp-controller="Eventos" asp-action="Index">Volver a Eventos</a></p>
