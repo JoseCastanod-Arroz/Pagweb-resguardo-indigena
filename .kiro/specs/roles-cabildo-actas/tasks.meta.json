@@ -1,0 +1,374 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Reescribir el enum Rol": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686391
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159694547
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159825062
+      }
+    ],
+    "2.1 Crear entidades Acta, TipoAsamblea y RegistroActividad": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686475
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159831364
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159927402
+      }
+    ],
+    "2.2 Registrar DbSets, relaciones y migración": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686521
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160126055
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160421269
+      }
+    ],
+    "3.1 Añadir las políticas de rol en Program.cs": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686556
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160126957
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160185962
+      }
+    ],
+    "4.1 Implementar IRegistroActividadService": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686609
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160442682
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160532195
+      }
+    ],
+    "4.2 Implementar IActaService": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686672
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160536566
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160678523
+      }
+    ],
+    "4.3 Extender IDocumentoService para documentos financieros": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686723
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160443919
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160533338
+      }
+    ],
+    "5.1 Implementar ActasController y vistas": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686760
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160699123
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161017489
+      }
+    ],
+    "6.1 Integrar el registro de actividad en los servicios de contenido": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686807
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160699935
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161018700
+      }
+    ],
+    "6.2 Implementar RegistroActividadController y vista": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686853
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161306291
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161484508
+      }
+    ],
+    "7.1 Actualizar UsuariosController y vistas para los nuevos roles": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686902
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161307688
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161485850
+      }
+    ],
+    "7.2 Marcar categorías financieras y aplicar el rol Tesorero en Documentos": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686954
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161309087
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161487246
+      }
+    ],
+    "7.3 Aplicar políticas por módulo en los controladores de contenido": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159686991
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161310156
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161488419
+      }
+    ],
+    "8. Checkpoint final - Verificar e integrar": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159687041
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161931820
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793162091517
+      }
+    ],
+    "1. Ampliar el modelo de roles (compatibilidad)": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159825093
+      }
+    ],
+    "1.2 Actualizar las pruebas de propiedades existentes": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793159947046
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160122193
+      }
+    ],
+    "3. Configurar las políticas de autorización": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160185992
+      }
+    ],
+    "2. Añadir entidades y migraciones": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160421304
+      }
+    ],
+    "4. Implementar servicios": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793160678617
+      }
+    ],
+    "5. Implementar el módulo de Actas (Area Admin)": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161017549
+      }
+    ],
+    "4.4 Escribir pruebas unitarias de los servicios nuevos": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161043354
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161294736
+      }
+    ],
+    "4.5 Escribir prueba basada en propiedades del Tesorero y documentos financieros": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161044325
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161295790
+      }
+    ],
+    "6. Implementar la veeduría (registro de actividad)": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161484616
+      }
+    ],
+    "7. Ajustar gestión de cuentas y documentos financieros (Area Admin)": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161488505
+      }
+    ],
+    "5.2 Escribir prueba basada en propiedades de autorización de actas": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161498222
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161717872
+      }
+    ],
+    "5.3 Escribir prueba de integración de privacidad de actas": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161499620
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161757207
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161760219
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161928335
+      }
+    ],
+    "6.3 Escribir prueba basada en propiedades del registro de actividad": [
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161500490
+      },
+      {
+        "executionId": "6a0fa59f-dd10-4926-bfa8-a7123d4af87e",
+        "chatSessionId": "sess_5f7f1494-19ca-4ce6-b7b5-34dbc5195e0b",
+        "timestamp": 1793161718888
+      }
+    ]
+  }
+}

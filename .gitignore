@@ -11,3 +11,11 @@ riderModule.iml
 *.db
 *.db-shm
 *.db-wal
+
+# Archivos subidos en tiempo de ejecución (quedan ligados a la base de datos
+# local, que no se versiona). Se conservan los marcadores de carpeta (.gitkeep)
+# y las imágenes de muestra ya versionadas.
+PagWebCabildo/wwwroot/uploads/actas/*
+PagWebCabildo/wwwroot/uploads/documentos/*
+PagWebCabildo/wwwroot/uploads/eventos/*
+!PagWebCabildo/wwwroot/uploads/**/.gitkeep

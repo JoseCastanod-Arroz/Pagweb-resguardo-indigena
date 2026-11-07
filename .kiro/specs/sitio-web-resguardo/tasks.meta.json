@@ -1,0 +1,1007 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Agregar paquetes y estructura de carpetas base": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485302
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942497120
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942759583
+      }
+    ],
+    "1.2 Configurar la cadena de conexión SQLite": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485396
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942498167
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942760614
+      }
+    ],
+    "2.1 Crear las enumeraciones y entidades del dominio": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485518
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942767782
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942862700
+      }
+    ],
+    "2.2 Crear el AppDbContext con DbSets y configuración": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485567
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942866083
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943000081
+      }
+    ],
+    "3.1 Registrar el DbContext y crear la migración inicial": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485616
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943003588
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943112471
+      }
+    ],
+    "3.2 Sembrar registros singleton y administrador inicial": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485650
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943675269
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943890733
+      }
+    ],
+    "4.1 Implementar IValidacionContactoService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485694
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942867489
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942999265
+      }
+    ],
+    "4.3 Implementar IArchivoService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485734
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942868479
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942997872
+      }
+    ],
+    "5.1 Implementar IPresentacionService e IContactoService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485770
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943676218
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943886920
+      }
+    ],
+    "5.2 Implementar IAutoridadService con reordenamiento": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485816
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943677619
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943885973
+      }
+    ],
+    "5.4 Implementar IEventoService con ordenamiento por proximidad": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485866
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943679083
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943889811
+      }
+    ],
+    "5.6 Implementar IComunicadoService con reglas de borrador y publicación": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485912
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943680035
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943888333
+      }
+    ],
+    "5.10 Implementar IGaleriaService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485952
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943894716
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944069834
+      }
+    ],
+    "5.11 Implementar IDocumentoService con agrupación por categoría": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942485996
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943896047
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944070837
+      }
+    ],
+    "5.13 Implementar IMensajeService con validación y ordenamiento": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486033
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943897460
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944072187
+      }
+    ],
+    "5.17 Implementar IUsuarioService e IAutenticacionService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486068
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943898526
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944073272
+      }
+    ],
+    "6. Checkpoint - Verificar servicios y propiedades": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486099
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792946129683
+      }
+    ],
+    "7.1 Configurar autenticación por cookies y políticas de rol": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486136
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944650266
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944736132
+      }
+    ],
+    "8.1 Actualizar el layout público y la página de inicio": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486181
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944742183
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944909291
+      }
+    ],
+    "8.2 Implementar Historia y Organización": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486217
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944743516
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944907888
+      }
+    ],
+    "8.3 Implementar Eventos públicos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486260
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944744906
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944910699
+      }
+    ],
+    "8.4 Implementar Comunicados públicos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486296
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944745871
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944911652
+      }
+    ],
+    "8.5 Implementar Galería pública": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486334
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944747006
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944906937
+      }
+    ],
+    "8.6 Implementar Documentos públicos y descarga": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486376
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944915763
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945100220
+      }
+    ],
+    "8.7 Implementar Contacto público y formulario": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486418
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944916719
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945101620
+      }
+    ],
+    "9. Checkpoint - Verificar sitio público": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486450
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792946132863
+      }
+    ],
+    "10.1 Crear el layout del Area Admin y el inicio de sesión": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486483
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944917882
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945102583
+      }
+    ],
+    "10.2 Implementar el panel principal (Dashboard)": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486521
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945108180
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945366433
+      }
+    ],
+    "11.1 Implementar UsuariosController con política GestionCuentas": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486572
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945109581
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945367522
+      }
+    ],
+    "12.1 Implementar Paginas (Historia) y Contacto admin": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486615
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945111033
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945368783
+      }
+    ],
+    "12.2 Implementar Autoridades admin": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486650
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945111931
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945370233
+      }
+    ],
+    "12.3 Implementar Eventos admin con imagen": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486683
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945113048
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945371198
+      }
+    ],
+    "12.4 Implementar Comunicados admin con borrador y publicación": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486717
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945376833
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945629802
+      }
+    ],
+    "12.5 Implementar Galería admin con carga de medios": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486762
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945375468
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945633417
+      }
+    ],
+    "12.6 Implementar Documentos admin con carga de archivos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486801
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945377784
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945631238
+      }
+    ],
+    "12.7 Implementar Mensajes admin": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486847
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945378971
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945632600
+      }
+    ],
+    "13. Checkpoint - Verificar Area Admin": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486898
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792946136084
+      }
+    ],
+    "15. Checkpoint final - Asegurar que todas las pruebas pasan": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942486933
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792946139575
+      }
+    ],
+    "1. Configurar el proyecto, paquetes y estructura base": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942760672
+      }
+    ],
+    "4. Implementar servicios de validación y archivos (transversales)": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792942999315
+      }
+    ],
+    "2. Definir los modelos de datos y el DbContext": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943000119
+      }
+    ],
+    "2.3 Escribir pruebas unitarias del mapeo del DbContext": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943141460
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943185917
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943356622
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944402357
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944459936
+      }
+    ],
+    "4.2 Escribir prueba basada en propiedades para la validación de contacto": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943142772
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943190568
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943665449
+      }
+    ],
+    "4.4 Escribir pruebas unitarias de IArchivoService": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943144178
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943191531
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943664326
+      }
+    ],
+    "5.3 Escribir prueba basada en propiedades del orden de autoridades": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943145579
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944081577
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944372219
+      }
+    ],
+    "5.5 Escribir prueba basada en propiedades del orden de eventos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943147015
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944082987
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944369954
+      }
+    ],
+    "5.7 Escribir prueba basada en propiedades del orden de comunicados publicados": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943148432
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944084402
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944371366
+      }
+    ],
+    "5.8 Escribir prueba basada en propiedades de ocultamiento de borradores": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943149818
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944085786
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944367118
+      }
+    ],
+    "5.9 Escribir prueba basada en propiedades de transición de publicación": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943151216
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944086766
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944368501
+      }
+    ],
+    "5.12 Escribir prueba basada en propiedades de agrupación de documentos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943152171
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944465100
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944640995
+      }
+    ],
+    "5.14 Escribir prueba basada en propiedades del orden de mensajes": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943153578
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944466049
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944642317
+      }
+    ],
+    "5.15 Escribir prueba basada en propiedades de rechazo de formulario incompleto": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943155026
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944467440
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944643717
+      }
+    ],
+    "5.16 Escribir prueba basada en propiedades de registro de formulario válido": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943156415
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944468848
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944646199
+      }
+    ],
+    "5.18 Escribir pruebas unitarias de servicios con casos límite": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943157815
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944470004
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944645116
+      }
+    ],
+    "11.2 Escribir prueba basada en propiedades de gestión de cuentas por Editor": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943159245
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945642900
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945915929
+      }
+    ],
+    "12.8 Escribir prueba basada en propiedades de eliminación de contenido por Editor": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943160180
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945644355
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945917379
+      }
+    ],
+    "14.1 Escribir pruebas de integración de autenticación y autorización": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943161569
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945645752
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945918771
+      }
+    ],
+    "14.2 Escribir pruebas de integración de render y descarga de documentos": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943162744
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945646837
+      },
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792946107545
+      }
+    ],
+    "3. Configurar migraciones y seeding inicial": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792943890769
+      }
+    ],
+    "5. Implementar la capa de servicios de contenido": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944073318
+      }
+    ],
+    "7. Implementar la infraestructura de autenticación y autorización": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792944736199
+      }
+    ],
+    "8. Implementar el sitio público (controladores y vistas)": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945101670
+      }
+    ],
+    "10. Implementar la base del Area Admin (layout, login y dashboard)": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945366482
+      }
+    ],
+    "11. Implementar la gestión de cuentas de administrador": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945367595
+      }
+    ],
+    "12. Implementar los módulos de gestión de contenido del Area Admin": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945633456
+      }
+    ],
+    "14. Escribir pruebas de integración de extremo a extremo": [
+      {
+        "executionId": "16b61b74-1d6f-4b0a-84dd-68ea51088643",
+        "chatSessionId": "sess_4ee8a36a-1c7c-4a99-8235-f00253c7e2b2",
+        "timestamp": 1792945918838
+      }
+    ]
+  }
+}
