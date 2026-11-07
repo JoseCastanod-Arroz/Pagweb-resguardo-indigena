@@ -1,0 +1,21 @@
+/* Estilos scoped del layout. La identidad visual vive en wwwroot/css/site.css.
+   Aquí se conservan solo ajustes estructurales que no deben pelear con el tema. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+}
+
+.border-top { border-top: 1px solid var(--borde, #e4ddcd); }
+.border-bottom { border-bottom: 1px solid var(--borde, #e4ddcd); }
+
+.box-shadow { box-shadow: none; }
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* El footer se maneja en site.css con position: static (flujo normal).
+   No se fija con position: absolute para que no tape el contenido. */

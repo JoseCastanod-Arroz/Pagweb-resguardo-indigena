@@ -1,0 +1,12 @@
+Imágenes del sitio — coloca aquí estos archivos:
+
+1) sello.png
+   - Sello / logo del resguardo. Aparece en el navbar y en el hero.
+   - PNG con fondo transparente, cuadrado (256x256 px o mayor).
+
+2) pacande.jpg
+   - Foto del cerro Pacandé. Se usa DIFUMINADA como fondo del hero
+     de la página de inicio.
+   - JPG horizontal, de buena resolución (1600 px de ancho o más).
+
+Si algún archivo no existe, el sitio funciona igual (ese elemento no se muestra).

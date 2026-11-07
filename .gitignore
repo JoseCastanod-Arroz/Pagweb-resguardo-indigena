@@ -1,0 +1,13 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# IDE (Rider / IntelliJ)
+.idea/
+
+# SQLite database files (generated at startup via migrations)
+*.db
+*.db-shm
+*.db-wal
