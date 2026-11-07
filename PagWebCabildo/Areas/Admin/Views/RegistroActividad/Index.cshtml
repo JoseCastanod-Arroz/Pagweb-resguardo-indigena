@@ -1,0 +1,47 @@
+@*
+    Consulta de solo lectura del registro de actividad (veeduría) del Panel de
+    Administración, ordenado del más reciente al más antiguo (Requisitos 5.2, 5.3).
+    Cada fila muestra la fecha y hora, el administrador que realizó la acción, el
+    módulo afectado, la acción y su detalle. No ofrece acciones de edición.
+*@
+@model IReadOnlyList<RegistroActividad>
+@{
+    ViewData["Title"] = "Registro de actividad";
+}
+
+<h1 class="h3 mb-4">Registro de actividad</h1>
+
+<p class="text-muted">Consulta de las acciones realizadas por los administradores sobre los módulos de contenido.</p>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay registros de actividad.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Administrador</th>
+                <th scope="col">Módulo</th>
+                <th scope="col">Acción</th>
+                <th scope="col">Detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var registro in Model)
+            {
+                <tr>
+                    <td>@registro.FechaHora.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@registro.AdministradorId</td>
+                    <td>@registro.Modulo</td>
+                    <td>@registro.Accion</td>
+                    <td>@registro.Detalle</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

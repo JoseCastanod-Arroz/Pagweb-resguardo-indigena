@@ -1,0 +1,43 @@
+@*
+    Formulario de creación de una categoría de documentos (Requisito 37.1). Usa
+    token antifalsificación y validación por Data Annotations reforzada del lado
+    del cliente con los scripts de validación.
+*@
+@model CategoriaFormViewModel
+@{
+    ViewData["Title"] = "Nueva categoría";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Nueva categoría</h1>
+    <a class="btn btn-outline-secondary" asp-action="Categorias">Volver</a>
+</div>
+
+<form asp-action="CrearCategoria" method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input asp-for="Nombre" class="form-control"/>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input asp-for="EsFinanciero" class="form-check-input"/>
+        <label asp-for="EsFinanciero" class="form-check-label"></label>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input asp-for="EsPublica" class="form-check-input"/>
+        <label asp-for="EsPublica" class="form-check-label"></label>
+        <div class="form-text">Si se desmarca, la categoría y sus documentos serán privados: no aparecerán en el sitio público ni serán descargables sin iniciar sesión.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear categoría</button>
+    <a class="btn btn-outline-secondary" asp-action="Categorias">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

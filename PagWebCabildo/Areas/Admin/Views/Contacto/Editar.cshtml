@@ -1,0 +1,51 @@
+@model PagWebCabildo.Areas.Admin.Models.ContactoAdminViewModel
+@*
+    Formulario de edición de la información de contacto del resguardo
+    (Requisito 40.1). Muestra los datos actuales (dirección, teléfono, correo y
+    otros datos) y los persiste mediante POST con token antifalsificación. Tras
+    guardar, muestra un mensaje de éxito a partir de TempData. Usa el layout
+    _AdminLayout definido por el _ViewStart del área.
+*@
+@{
+    ViewData["Title"] = "Información de contacto";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Información de contacto</h1>
+    <a class="btn btn-outline-secondary" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Volver al panel</a>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success" role="alert">@mensaje</div>
+}
+
+<p class="text-muted">Edite los datos de contacto que se muestran en la sección pública de Contacto.</p>
+
+<form asp-area="Admin" asp-controller="Contacto" asp-action="Editar" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label asp-for="Direccion" class="form-label"></label>
+        <input asp-for="Direccion" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input asp-for="Telefono" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CorreoElectronico" class="form-label"></label>
+        <input asp-for="CorreoElectronico" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="OtrosDatos" class="form-label"></label>
+        <textarea asp-for="OtrosDatos" class="form-control" rows="4"></textarea>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+</form>

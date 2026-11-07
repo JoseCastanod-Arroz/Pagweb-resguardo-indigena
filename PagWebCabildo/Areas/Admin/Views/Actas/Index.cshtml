@@ -1,0 +1,72 @@
+@*
+    Listado de gestión de actas de asamblea del Panel de Administración
+    (Requisitos 3.1, 4.4). Muestra consecutivo, fecha, tipo, título y quién la
+    registró, y ofrece crear, editar y descargar el archivo adjunto. Las actas son
+    documentos privados: este listado solo es accesible dentro del Area Admin. Los
+    avisos TempData informan del resultado de crear/editar.
+*@
+@model IReadOnlyList<Acta>
+@{
+    ViewData["Title"] = "Actas";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Actas de asamblea</h1>
+    <a class="btn btn-primary" asp-action="Crear">Nueva acta</a>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success" role="alert">@mensaje</div>
+}
+@if (TempData["Error"] is string error)
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay actas registradas.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th scope="col">Consecutivo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Título</th>
+                <th scope="col">Registrada por</th>
+                <th scope="col" class="text-end">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var acta in Model)
+            {
+                <tr>
+                    <td>@acta.Consecutivo</td>
+                    <td>@acta.FechaAsamblea.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        @if (acta.Tipo == TipoAsamblea.Extraordinaria)
+                        {
+                            <span class="badge bg-warning text-dark">Extraordinaria</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Ordinaria</span>
+                        }
+                    </td>
+                    <td>@acta.Titulo</td>
+                    <td>@(acta.RegistradoPor?.NombreUsuario ?? "—")</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@acta.Id">Editar</a>
+                        <a class="btn btn-sm btn-outline-primary" asp-action="Descargar" asp-route-id="@acta.Id">Descargar</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

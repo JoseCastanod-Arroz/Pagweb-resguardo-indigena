@@ -1,0 +1,67 @@
+@*
+    Formulario de edición de un documento (Requisitos 39.1, 39.2). Permite
+    reemplazar el archivo; si no se sube uno nuevo, se conserva el existente.
+    Muestra el archivo actual cuando lo hay. Usa enctype multipart/form-data y
+    token antifalsificación.
+*@
+@model DocumentoFormViewModel
+@{
+    ViewData["Title"] = "Editar documento";
+    var categorias = ViewBag.Categorias as SelectList;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Editar documento</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+</div>
+
+<form asp-action="Editar" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="ArchivoRutaActual"/>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control"/>
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label"></label>
+        <textarea asp-for="Descripcion" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CategoriaDocumentoId" class="form-label"></label>
+        <select asp-for="CategoriaDocumentoId" asp-items="categorias" class="form-select">
+            <option value="">-- Seleccione una categoría --</option>
+        </select>
+        <span asp-validation-for="CategoriaDocumentoId" class="text-danger"></span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ArchivoRutaActual))
+    {
+        <div class="mb-3">
+            <label class="form-label">Archivo actual</label>
+            <div>
+                <a href="~/@Model.ArchivoRutaActual" target="_blank" rel="noopener">Ver archivo actual</a>
+            </div>
+        </div>
+    }
+
+    <div class="mb-3">
+        <label asp-for="Archivo" class="form-label"></label>
+        <input asp-for="Archivo" class="form-control" type="file"/>
+        <span asp-validation-for="Archivo" class="text-danger"></span>
+        <div class="form-text">Si no selecciona un archivo, se conserva el archivo actual.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

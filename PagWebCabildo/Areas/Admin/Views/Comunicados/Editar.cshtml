@@ -1,0 +1,73 @@
+@*
+    Formulario de edición de un comunicado (Requisitos 31.2, 32.1, 32.2, 32.4).
+    Permite modificar título, fecha y contenido y guardar como borrador (la acción
+    GuardarBorrador exige título y contenido). Si el comunicado está en borrador, se
+    ofrece además publicarlo; la publicación solo procede desde borrador (Requisitos
+    32.5, 32.6), regla que impone el servicio. Usa token antifalsificación y
+    validación por Data Annotations.
+*@
+@model ComunicadoFormViewModel
+@{
+    ViewData["Title"] = "Editar comunicado";
+    var estado = ViewBag.Estado as EstadoComunicado?;
+    var esBorrador = estado == EstadoComunicado.Borrador;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Editar comunicado</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+</div>
+
+@if (estado is not null)
+{
+    <p>
+        Estado actual:
+        @if (estado == EstadoComunicado.Publicado)
+        {
+            <span class="badge bg-success">Publicado</span>
+        }
+        else
+        {
+            <span class="badge bg-secondary">Borrador</span>
+        }
+    </p>
+}
+
+<form asp-action="GuardarBorrador" method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id"/>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control"/>
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label"></label>
+        <input asp-for="Fecha" class="form-control" type="date"/>
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Contenido" class="form-label"></label>
+        <textarea asp-for="Contenido" class="form-control" rows="8"></textarea>
+        <span asp-validation-for="Contenido" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar borrador</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+@if (esBorrador)
+{
+    <form asp-action="Publicar" asp-route-id="@Model.Id" method="post" class="mt-3">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-success">Publicar</button>
+    </form>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

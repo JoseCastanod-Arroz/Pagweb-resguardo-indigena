@@ -1,0 +1,182 @@
+@*
+    Panel principal del Panel de Administración (Requisito 20.1). Presenta una
+    tarjeta de acceso por cada módulo de gestión, enlazando al controlador
+    correspondiente dentro del Area "Admin". Usa el layout _AdminLayout definido
+    por el _ViewStart del área.
+*@
+@{
+    ViewData["Title"] = "Panel principal";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Panel principal</h1>
+    <span class="text-muted">Sesión: <strong>@User.Identity?.Name</strong></span>
+</div>
+
+<p class="text-muted">Seleccione un módulo para gestionar su contenido.</p>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @* Usuarios: política GestionCuentas → solo AdministradorGeneral *@
+    @if (User.IsInRole("AdministradorGeneral"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Usuarios</h2>
+                    <p class="card-text text-muted flex-grow-1">Administre las cuentas de administrador del sitio.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Gestionar usuarios</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Historia: política GestionHistoria → AdministradorGeneral, Secretario *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Secretario"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Historia</h2>
+                    <p class="card-text text-muted flex-grow-1">Edite el texto de presentación e historia del resguardo.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Paginas" asp-action="Historia">Editar historia</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Autoridades: política GestionContenidoEditorial → AdministradorGeneral, Secretario, Fiscal *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Secretario") || User.IsInRole("Fiscal"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Autoridades</h2>
+                    <p class="card-text text-muted flex-grow-1">Gestione las autoridades y su orden de presentación.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Autoridades" asp-action="Index">Gestionar autoridades</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Eventos y Comunicados: política GestionComunicadosEventos → AdministradorGeneral, Secretario, Comisario *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Secretario") || User.IsInRole("Comisario"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Eventos</h2>
+                    <p class="card-text text-muted flex-grow-1">Cree y administre los eventos del resguardo.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Eventos" asp-action="Index">Gestionar eventos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Comunicados</h2>
+                    <p class="card-text text-muted flex-grow-1">Redacte borradores y publique comunicados.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Comunicados" asp-action="Index">Gestionar comunicados</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Galería: política GestionContenidoEditorial → AdministradorGeneral, Secretario, Fiscal *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Secretario") || User.IsInRole("Fiscal"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Galería</h2>
+                    <p class="card-text text-muted flex-grow-1">Administre temas, fotos y videos de la galería.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Galeria" asp-action="Index">Gestionar galería</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Documentos: política GestionDocumentos → todos menos Comisario *@
+    @if (!User.IsInRole("Comisario"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Documentos</h2>
+                    <p class="card-text text-muted flex-grow-1">Administre categorías y documentos descargables.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Documentos" asp-action="Index">Gestionar documentos</a>
+                </div>
+            </div>
+        </div>
+    }
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Tesorero"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Documentos financieros</h2>
+                    <p class="card-text text-muted flex-grow-1">Gestione los documentos financieros del resguardo.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Documentos" asp-action="Financieros">Gestionar documentos financieros</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Actas: política ConsultaActas → AdministradorGeneral, Secretario, Fiscal *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Secretario") || User.IsInRole("Fiscal"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Actas</h2>
+                    <p class="card-text text-muted flex-grow-1">Registre y consulte las actas de asamblea del cabildo.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Actas" asp-action="Index">Gestionar actas</a>
+                </div>
+            </div>
+        </div>
+    }
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Fiscal"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Veeduría</h2>
+                    <p class="card-text text-muted flex-grow-1">Consulte el registro de actividad de los administradores.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="RegistroActividad" asp-action="Index">Ver registro de actividad</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Contacto: contenido editorial (política GestionContenidoGeneral) → todos menos Tesorero *@
+    @if (!User.IsInRole("Tesorero"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Contacto</h2>
+                    <p class="card-text text-muted flex-grow-1">Edite la información de contacto del resguardo.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Contacto" asp-action="Editar">Editar contacto</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Mensajes: política GestionMensajes → AdministradorGeneral, Comisario *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Comisario"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Mensajes</h2>
+                    <p class="card-text text-muted flex-grow-1">Revise los mensajes recibidos por el formulario de contacto.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Mensajes" asp-action="Index">Ver mensajes</a>
+                </div>
+            </div>
+        </div>
+    }
+    @* Foro: política ModerarForo → AdministradorGeneral, Comisario *@
+    @if (User.IsInRole("AdministradorGeneral") || User.IsInRole("Comisario"))
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title">Foro comunitario</h2>
+                    <p class="card-text text-muted flex-grow-1">Modere las recetas, historias y comentarios enviados por la comunidad.</p>
+                    <a class="btn btn-primary mt-2" asp-area="Admin" asp-controller="Foro" asp-action="Index">Moderar foro</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

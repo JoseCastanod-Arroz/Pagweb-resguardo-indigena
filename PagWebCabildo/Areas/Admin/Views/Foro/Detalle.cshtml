@@ -1,0 +1,143 @@
+@*
+    Moderación del detalle de una publicación del foro: muestra el contenido y
+    permite moderar sus comentarios uno por uno (aprobar, rechazar, eliminar).
+*@
+@model PublicacionForo
+@{
+    ViewData["Title"] = "Moderar publicación";
+    var esAdminGeneral = User.IsInRole("AdministradorGeneral");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Moderar publicación</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Volver al foro</a>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success" role="alert">@mensaje</div>
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="mb-2">
+            <span class="badge bg-secondary">@(Model.Tipo == TipoPublicacionForo.Receta ? "Receta" : "Historia")</span>
+            @switch (Model.Estado)
+            {
+                case EstadoPublicacionForo.Aprobado:
+                    <span class="badge bg-success">Aprobada</span>
+                    break;
+                case EstadoPublicacionForo.Rechazado:
+                    <span class="badge bg-danger">Rechazada</span>
+                    break;
+                default:
+                    <span class="badge bg-warning text-dark">Pendiente</span>
+                    break;
+            }
+        </div>
+        <h2 class="h4">@Model.Titulo</h2>
+        <p class="text-muted">Por @Model.Autor · @Model.FechaEnvio.ToString("yyyy-MM-dd HH:mm")</p>
+
+        @if (!string.IsNullOrEmpty(Model.ImagenRuta))
+        {
+            <img src="~/@Model.ImagenRuta" alt="Imagen de @Model.Titulo" class="img-fluid rounded mb-3" style="max-height:360px;"/>
+        }
+
+        <div>
+            @foreach (var parrafo in Model.Contenido.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+            {
+                <p>@parrafo</p>
+            }
+        </div>
+
+        <div class="mt-3">
+            @if (Model.Estado != EstadoPublicacionForo.Aprobado)
+            {
+                <form asp-action="AprobarPublicacion" asp-route-id="@Model.Id" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-sm btn-outline-success">Aprobar publicación</button>
+                </form>
+            }
+            @if (Model.Estado != EstadoPublicacionForo.Rechazado)
+            {
+                <form asp-action="RechazarPublicacion" asp-route-id="@Model.Id" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-sm btn-outline-warning">Rechazar publicación</button>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+
+<h2 class="h4">Comentarios</h2>
+@if (!Model.Comentarios.Any())
+{
+    <p class="text-muted">Esta publicación no tiene comentarios.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th scope="col">Autor</th>
+                <th scope="col">Comentario</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
+                <th scope="col" class="text-end">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var comentario in Model.Comentarios)
+            {
+                <tr>
+                    <td>@comentario.Autor</td>
+                    <td>@comentario.Contenido</td>
+                    <td>@comentario.FechaEnvio.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>
+                        @switch (comentario.Estado)
+                        {
+                            case EstadoPublicacionForo.Aprobado:
+                                <span class="badge bg-success">Aprobado</span>
+                                break;
+                            case EstadoPublicacionForo.Rechazado:
+                                <span class="badge bg-danger">Rechazado</span>
+                                break;
+                            default:
+                                <span class="badge bg-warning text-dark">Pendiente</span>
+                                break;
+                        }
+                    </td>
+                    <td class="text-end">
+                        @if (comentario.Estado != EstadoPublicacionForo.Aprobado)
+                        {
+                            <form asp-action="AprobarComentario" asp-route-id="@comentario.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="publicacionId" value="@Model.Id"/>
+                                <button type="submit" class="btn btn-sm btn-outline-success">Aprobar</button>
+                            </form>
+                        }
+                        @if (comentario.Estado != EstadoPublicacionForo.Rechazado)
+                        {
+                            <form asp-action="RechazarComentario" asp-route-id="@comentario.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="publicacionId" value="@Model.Id"/>
+                                <button type="submit" class="btn btn-sm btn-outline-warning">Rechazar</button>
+                            </form>
+                        }
+                        @if (esAdminGeneral)
+                        {
+                            <form asp-action="EliminarComentario" asp-route-id="@comentario.Id" method="post" class="d-inline"
+                                  onsubmit="return confirm('¿Eliminar este comentario? Esta acción no se puede deshacer.');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="publicacionId" value="@Model.Id"/>
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,79 @@
+@*
+    Gestión de autoridades (Requisito 25). Lista las autoridades en el orden
+    definido y permite: crear una nueva, editar una existente, reasignar el orden
+    mediante un formulario único (Requisito 25.3/25.4) y eliminar (solo
+    AdministradorGeneral, Requisito 25.5). El botón de eliminar se muestra
+    únicamente a los AdministradorGeneral; la política "EliminarContenido" lo
+    hace cumplir en el servidor en cualquier caso.
+*@
+@model IReadOnlyList<Autoridad>
+@{
+    ViewData["Title"] = "Autoridades";
+    var puedeEliminar = User.IsInRole("AdministradorGeneral");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Autoridades</h1>
+    <a class="btn btn-primary" asp-action="Crear">Crear autoridad</a>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success" role="alert">@mensaje</div>
+}
+@if (TempData["Error"] is string error)
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">No hay autoridades registradas.</p>
+}
+else
+{
+    <form asp-action="Ordenar" method="post">
+        @Html.AntiForgeryToken()
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                <tr>
+                    <th scope="col">Orden</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col" class="text-end">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var autoridad in Model)
+                {
+                    <tr>
+                        <td style="width: 8rem;">
+                            <input type="hidden" name="ids" value="@autoridad.Id"/>
+                            <input type="number" name="ordenes" value="@autoridad.Orden"
+                                   class="form-control form-control-sm" aria-label="Orden de @autoridad.Nombre"/>
+                        </td>
+                        <td>@autoridad.Nombre</td>
+                        <td>@autoridad.Cargo</td>
+                        <td>@autoridad.TipoAutoridad</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@autoridad.Id">Editar</a>
+                            @if (puedeEliminar)
+                            {
+                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        asp-action="Eliminar" asp-route-id="@autoridad.Id" formmethod="post"
+                                        formnovalidate
+                                        onclick="return confirm('¿Eliminar a @autoridad.Nombre?');">
+                                    Eliminar
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar orden</button>
+    </form>
+}

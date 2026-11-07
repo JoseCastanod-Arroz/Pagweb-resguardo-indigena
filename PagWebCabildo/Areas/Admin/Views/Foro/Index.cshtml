@@ -1,0 +1,97 @@
+@*
+    Moderación del foro comunitario. Lista todas las publicaciones (recetas e
+    historias) enviadas por visitantes con su estado, y permite aprobar, rechazar,
+    ver sus comentarios y eliminar. El botón de eliminar solo se muestra al
+    Administrador General; la política "EliminarContenido" lo refuerza en el
+    servidor.
+*@
+@model IReadOnlyList<PublicacionForo>
+@{
+    ViewData["Title"] = "Foro comunitario";
+    var esAdminGeneral = User.IsInRole("AdministradorGeneral");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Foro comunitario</h1>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success" role="alert">@mensaje</div>
+}
+@if (TempData["Error"] is string error)
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay publicaciones en el foro.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
+                <th scope="col" class="text-end">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var publicacion in Model)
+            {
+                <tr>
+                    <td>@publicacion.Titulo</td>
+                    <td>@(publicacion.Tipo == TipoPublicacionForo.Receta ? "Receta" : "Historia")</td>
+                    <td>@publicacion.Autor</td>
+                    <td>@publicacion.FechaEnvio.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>
+                        @switch (publicacion.Estado)
+                        {
+                            case EstadoPublicacionForo.Aprobado:
+                                <span class="badge bg-success">Aprobada</span>
+                                break;
+                            case EstadoPublicacionForo.Rechazado:
+                                <span class="badge bg-danger">Rechazada</span>
+                                break;
+                            default:
+                                <span class="badge bg-warning text-dark">Pendiente</span>
+                                break;
+                        }
+                    </td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Detalle" asp-route-id="@publicacion.Id">Ver / Comentarios</a>
+                        @if (publicacion.Estado != EstadoPublicacionForo.Aprobado)
+                        {
+                            <form asp-action="AprobarPublicacion" asp-route-id="@publicacion.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-success">Aprobar</button>
+                            </form>
+                        }
+                        @if (publicacion.Estado != EstadoPublicacionForo.Rechazado)
+                        {
+                            <form asp-action="RechazarPublicacion" asp-route-id="@publicacion.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-warning">Rechazar</button>
+                            </form>
+                        }
+                        @if (esAdminGeneral)
+                        {
+                            <form asp-action="EliminarPublicacion" asp-route-id="@publicacion.Id" method="post" class="d-inline"
+                                  onsubmit="return confirm('¿Eliminar esta publicación y sus comentarios? Esta acción no se puede deshacer.');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

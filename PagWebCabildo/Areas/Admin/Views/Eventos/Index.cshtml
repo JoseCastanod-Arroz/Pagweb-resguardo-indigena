@@ -1,0 +1,77 @@
+@*
+    Listado de gestión de eventos del Panel de Administración (Requisitos 26.1,
+    28.2, 28.3, 29.1). Ofrece crear, editar, marcar como cancelado y eliminar. El
+    botón de eliminar solo se muestra al Administrador General como cortesía de UI;
+    la política "EliminarContenido" lo refuerza del lado del servidor.
+*@
+@model IReadOnlyList<Evento>
+@{
+    ViewData["Title"] = "Eventos";
+    var esAdminGeneral = User.IsInRole("AdministradorGeneral");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Eventos</h1>
+    <a class="btn btn-primary" asp-action="Crear">Nuevo evento</a>
+</div>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay eventos registrados.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Estado</th>
+                <th scope="col" class="text-end">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var evento in Model)
+            {
+                <tr>
+                    <td>@evento.Titulo</td>
+                    <td>@evento.Fecha.ToString("yyyy-MM-dd")</td>
+                    <td>@evento.Hora.ToString("HH:mm")</td>
+                    <td>@evento.Lugar</td>
+                    <td>
+                        @if (evento.Cancelado)
+                        {
+                            <span class="badge bg-danger">Cancelado</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Vigente</span>
+                        }
+                    </td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@evento.Id">Editar</a>
+                        @if (!evento.Cancelado)
+                        {
+                            <form asp-action="MarcarCancelado" asp-route-id="@evento.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-warning">Marcar cancelado</button>
+                            </form>
+                        }
+                        @if (esAdminGeneral)
+                        {
+                            <form asp-action="Eliminar" asp-route-id="@evento.Id" method="post" class="d-inline"
+                                  onsubmit="return confirm('¿Eliminar este evento? Esta acción no se puede deshacer.');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

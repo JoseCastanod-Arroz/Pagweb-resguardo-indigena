@@ -1,0 +1,45 @@
+@*
+    Formulario de creación de un comunicado (Requisitos 31.1, 32.1, 32.2). El
+    comunicado se crea como borrador: la acción GuardarBorrador exige título y
+    contenido. La publicación se realiza desde el listado o la edición, una vez el
+    borrador existe. Usa token antifalsificación y validación por Data Annotations.
+*@
+@model ComunicadoFormViewModel
+@{
+    ViewData["Title"] = "Nuevo comunicado";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Nuevo comunicado</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+</div>
+
+<form asp-action="GuardarBorrador" method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control"/>
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label"></label>
+        <input asp-for="Fecha" class="form-control" type="date"/>
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Contenido" class="form-label"></label>
+        <textarea asp-for="Contenido" class="form-control" rows="8"></textarea>
+        <span asp-validation-for="Contenido" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar borrador</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

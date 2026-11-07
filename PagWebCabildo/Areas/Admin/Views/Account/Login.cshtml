@@ -1,0 +1,56 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+    // Layout mínimo e independiente: la pantalla de login debe ser usable sin
+    // sesión iniciada, por lo que no reutiliza el menú del panel.
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Panel de Administración</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="h4 mb-4 text-center">Panel de Administración</h1>
+
+                    <form asp-area="Admin" asp-controller="Account" asp-action="Login" method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="ReturnUrl"/>
+
+                        <div class="mb-3">
+                            <label asp-for="Usuario" class="form-label"></label>
+                            <input asp-for="Usuario" class="form-control" autocomplete="username" autofocus/>
+                            <span asp-validation-for="Usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Contraseña" class="form-label"></label>
+                            <input asp-for="Contraseña" class="form-control" autocomplete="current-password"/>
+                            <span asp-validation-for="Contraseña" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="text-center mt-3">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Volver al sitio público</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

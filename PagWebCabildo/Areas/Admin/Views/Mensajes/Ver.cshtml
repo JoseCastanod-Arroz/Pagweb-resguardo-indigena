@@ -1,0 +1,64 @@
+@*
+    Detalle de un mensaje del Panel de Administración (Requisito 42.1). Muestra el
+    nombre, medio de contacto, asunto, contenido, fecha de recepción y estado de
+    atención. Ofrece marcar como atendido (Requisito 42.2) y eliminar; el botón de
+    eliminar solo se muestra al Administrador General como cortesía de UI, mientras
+    la política "EliminarContenido" lo refuerza del lado del servidor (Req 43.2).
+*@
+@model Mensaje
+@{
+    ViewData["Title"] = "Mensaje";
+    var esAdminGeneral = User.IsInRole("AdministradorGeneral");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Mensaje de contacto</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">Nombre</dt>
+    <dd class="col-sm-9">@Model.Nombre</dd>
+
+    <dt class="col-sm-3">Medio de contacto</dt>
+    <dd class="col-sm-9">@Model.MedioContacto</dd>
+
+    <dt class="col-sm-3">Asunto</dt>
+    <dd class="col-sm-9">@Model.Asunto</dd>
+
+    <dt class="col-sm-3">Mensaje</dt>
+    <dd class="col-sm-9" style="white-space: pre-wrap;">@Model.Contenido</dd>
+
+    <dt class="col-sm-3">Fecha de recepción</dt>
+    <dd class="col-sm-9">@Model.FechaRecepcion.ToString("yyyy-MM-dd HH:mm")</dd>
+
+    <dt class="col-sm-3">Estado</dt>
+    <dd class="col-sm-9">
+        @if (Model.Atendido)
+        {
+            <span class="badge bg-success">Atendido</span>
+        }
+        else
+        {
+            <span class="badge bg-secondary">Sin atender</span>
+        }
+    </dd>
+</dl>
+
+<div class="d-flex gap-2">
+    @if (!Model.Atendido)
+    {
+        <form asp-action="MarcarAtendido" asp-route-id="@Model.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-outline-success">Marcar como atendido</button>
+        </form>
+    }
+    @if (esAdminGeneral)
+    {
+        <form asp-action="Eliminar" asp-route-id="@Model.Id" method="post" class="d-inline"
+              onsubmit="return confirm('¿Eliminar este mensaje? Esta acción no se puede deshacer.');">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+        </form>
+    }
+</div>

@@ -1,0 +1,48 @@
+@using PagWebCabildo.Models.Entidades
+@model IReadOnlyList<CategoriaDocumento>
+@{
+    ViewData["Title"] = "Documentos";
+}
+
+<section class="rib-section">
+    <div class="reveal" style="text-align:center;">
+        <span class="rib-label">Archivo</span>
+        <h2>Nuestros <em>Documentos</em></h2>
+        <p class="rib-contenido" style="max-width:620px;margin:1rem auto 0;">
+            Documentos oficiales del resguardo disponibles para consulta y descarga.
+        </p>
+    </div>
+
+    @if (Model is null || Model.Count == 0 || Model.All(c => c.Documentos.Count == 0))
+    {
+        <p class="rib-vacio text-center mt-4">Aún no hay documentos disponibles.</p>
+    }
+    else
+    {
+        @foreach (var categoria in Model)
+        {
+            @if (categoria.Documentos.Count > 0)
+            {
+                <div class="rib-doc-categoria reveal">
+                    <h3>@categoria.Nombre</h3>
+                    <div class="rib-doc-grid">
+                        @foreach (var documento in categoria.Documentos)
+                        {
+                            <div class="rib-doc-card">
+                                <span class="rib-doc-ico">📄</span>
+                                <div class="rib-doc-info">
+                                    <h4>@documento.Titulo</h4>
+                                    @if (!string.IsNullOrWhiteSpace(documento.Descripcion))
+                                    {
+                                        <p>@documento.Descripcion</p>
+                                    }
+                                    <a asp-controller="Documentos" asp-action="Descargar" asp-route-id="@documento.Id" class="rib-mas">Descargar ↓</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+</section>
