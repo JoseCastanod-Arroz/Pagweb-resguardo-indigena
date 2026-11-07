@@ -1,0 +1,105 @@
+@using System.Globalization
+@using PagWebCabildo.Models.Entidades
+@model PagWebCabildo.Models.ViewModels.DetallePublicacionForoViewModel
+@{
+    var publicacion = Model.Publicacion;
+    ViewData["Title"] = publicacion.Titulo;
+    var cultura = new CultureInfo("es-CO");
+    var comunidad = publicacion.Tipo == TipoPublicacionForo.Receta ? "r/Recetas" : "r/Historias";
+
+    string TiempoRelativo(DateTime fecha)
+    {
+        var delta = DateTime.Now - fecha;
+        if (delta.TotalMinutes < 1) return "hace un momento";
+        if (delta.TotalMinutes < 60) return $"hace {(int)delta.TotalMinutes} min";
+        if (delta.TotalHours < 24) return $"hace {(int)delta.TotalHours} h";
+        if (delta.TotalDays < 30) return $"hace {(int)delta.TotalDays} d";
+        return fecha.ToString("dd 'de' MMMM, yyyy", cultura);
+    }
+}
+
+<section class="rib-foro">
+    <p class="rib-foro-volver"><a asp-controller="Foro" asp-action="Index">← Volver al foro</a></p>
+
+    @if (TempData["MensajeExito"] is string exito)
+    {
+        <div class="alert alert-success" role="alert">@exito</div>
+    }
+
+    <article class="rib-post rib-post--detalle">
+        <div class="rib-post-cuerpo">
+            <div class="rib-post-meta">
+                <span class="rib-post-comunidad">@comunidad</span>
+                <span class="rib-post-sep">·</span>
+                <span>Publicado por u/@publicacion.Autor</span>
+                <span class="rib-post-sep">·</span>
+                <span>@TiempoRelativo(publicacion.FechaEnvio)</span>
+            </div>
+
+            <h1 class="rib-post-titulo rib-post-titulo--detalle">@publicacion.Titulo</h1>
+
+            @if (!string.IsNullOrEmpty(publicacion.ImagenRuta))
+            {
+                <img src="~/@publicacion.ImagenRuta" alt="Imagen de @publicacion.Titulo" class="rib-post-imagen"/>
+            }
+
+            <div class="rib-post-contenido">
+                @foreach (var parrafo in publicacion.Contenido.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <p>@parrafo</p>
+                }
+            </div>
+
+            <div class="rib-post-pie">
+                <span class="rib-post-accion">💬 @publicacion.Comentarios.Count @(publicacion.Comentarios.Count == 1 ? "comentario" : "comentarios")</span>
+            </div>
+        </div>
+    </article>
+
+    <div class="rib-comentar">
+        <h2 class="rib-comentar-titulo">Comentar como visitante</h2>
+        <p class="rib-comentar-nota">Tu comentario se mostrará una vez que el cabildo lo apruebe.</p>
+        <form asp-controller="Foro" asp-action="Comentar" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="NuevoComentario.PublicacionForoId"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-2">
+                <input asp-for="NuevoComentario.Autor" class="form-control" placeholder="Tu nombre"/>
+                <span asp-validation-for="NuevoComentario.Autor" class="text-danger"></span>
+            </div>
+            <div class="mb-2">
+                <textarea asp-for="NuevoComentario.Contenido" class="form-control" rows="3" placeholder="Escribe un comentario…"></textarea>
+                <span asp-validation-for="NuevoComentario.Contenido" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Comentar</button>
+        </form>
+    </div>
+
+    <div class="rib-hilo">
+        <h2 class="rib-hilo-titulo">@publicacion.Comentarios.Count @(publicacion.Comentarios.Count == 1 ? "comentario" : "comentarios")</h2>
+
+        @if (!publicacion.Comentarios.Any())
+        {
+            <p class="text-muted">Aún no hay comentarios. ¡Sé la primera persona en comentar!</p>
+        }
+        else
+        {
+            foreach (var comentario in publicacion.Comentarios)
+            {
+                <div class="rib-comentario">
+                    <div class="rib-comentario-meta">
+                        <span class="rib-comentario-autor">u/@comentario.Autor</span>
+                        <span class="rib-post-sep">·</span>
+                        <span>@TiempoRelativo(comentario.FechaEnvio)</span>
+                    </div>
+                    <p class="rib-comentario-texto">@comentario.Contenido</p>
+                </div>
+            }
+        }
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

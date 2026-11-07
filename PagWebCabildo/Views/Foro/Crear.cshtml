@@ -1,0 +1,60 @@
+@using PagWebCabildo.Models.Entidades
+@model PagWebCabildo.Models.ViewModels.PublicacionForoFormViewModel
+@{
+    ViewData["Title"] = "Compartir en el foro";
+}
+
+<section class="rib-section">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Compartir receta o historia</h1>
+        <a class="btn btn-outline-secondary" asp-controller="Foro" asp-action="Index">Volver al foro</a>
+    </div>
+
+    <p class="text-muted">
+        Tu publicación será revisada por el cabildo antes de hacerse pública. Gracias por aportar
+        a la memoria de la comunidad.
+    </p>
+
+    <form asp-controller="Foro" asp-action="Crear" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Autor" class="form-label"></label>
+            <input asp-for="Autor" class="form-control"/>
+            <span asp-validation-for="Autor" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tipo" class="form-label"></label>
+            <select asp-for="Tipo" class="form-select"
+                    asp-items="Html.GetEnumSelectList<TipoPublicacionForo>()"></select>
+            <span asp-validation-for="Tipo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" class="form-control"/>
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Contenido" class="form-label"></label>
+            <textarea asp-for="Contenido" class="form-control" rows="8"></textarea>
+            <span asp-validation-for="Contenido" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Imagen" class="form-label"></label>
+            <input asp-for="Imagen" class="form-control" type="file" accept="image/*"/>
+            <span asp-validation-for="Imagen" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <a class="btn btn-outline-secondary" asp-controller="Foro" asp-action="Index">Cancelar</a>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

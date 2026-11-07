@@ -1,0 +1,164 @@
+@using System.Globalization
+@using PagWebCabildo.Models.Entidades
+@using PagWebCabildo.Models.ViewModels
+@model ForoFeedPaginado
+@{
+    ViewData["Title"] = "Foro comunitario";
+    var cultura = new CultureInfo("es-CO");
+
+    string TiempoRelativo(DateTime fecha)
+    {
+        var delta = DateTime.Now - fecha;
+        if (delta.TotalMinutes < 1) return "hace un momento";
+        if (delta.TotalMinutes < 60) return $"hace {(int)delta.TotalMinutes} min";
+        if (delta.TotalHours < 24) return $"hace {(int)delta.TotalHours} h";
+        if (delta.TotalDays < 30) return $"hace {(int)delta.TotalDays} d";
+        return fecha.ToString("dd 'de' MMMM, yyyy", cultura);
+    }
+}
+
+<section class="rib-foro">
+    <div class="rib-foro-encabezado">
+        <div>
+            <h1 class="rib-foro-titulo">Foro comunitario</h1>
+            <p class="rib-foro-sub">Recetas e historias compartidas por la comunidad. Las publicaciones se revisan antes de hacerse públicas.</p>
+        </div>
+        <a class="btn btn-primary" asp-controller="Foro" asp-action="Crear">Crear publicación</a>
+    </div>
+
+    <form class="rib-buscador" asp-controller="Foro" asp-action="Index" method="get" role="search">
+        <input type="search" name="q" value="@Model.Busqueda" class="rib-buscador-input"
+               placeholder="Buscar recetas, historias o autores…" aria-label="Buscar en el foro"/>
+        <select name="tipo" class="rib-buscador-select" aria-label="Filtrar por tipo">
+            <option value="">Todo</option>
+            <option value="@TipoPublicacionForo.Receta" selected="@(Model.Tipo == TipoPublicacionForo.Receta)">Recetas</option>
+            <option value="@TipoPublicacionForo.Historia" selected="@(Model.Tipo == TipoPublicacionForo.Historia)">Historias</option>
+        </select>
+        <select name="orden" class="rib-buscador-select" aria-label="Ordenar">
+            <option value="@OrdenForo.Recientes" selected="@(Model.Orden == OrdenForo.Recientes)">Más recientes</option>
+            <option value="@OrdenForo.Comentados" selected="@(Model.Orden == OrdenForo.Comentados)">Más comentados</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        @if (Model.HayFiltro)
+        {
+            <a class="btn btn-outline-primary" asp-controller="Foro" asp-action="Index">Limpiar</a>
+        }
+    </form>
+
+    @if (TempData["MensajeExito"] is string exito)
+    {
+        <div class="alert alert-success" role="alert">@exito</div>
+    }
+
+    @if (Model.HayFiltro)
+    {
+        <p class="rib-buscador-resumen">
+            @Model.TotalItems @(Model.TotalItems == 1 ? "resultado" : "resultados")
+            @if (!string.IsNullOrWhiteSpace(Model.Busqueda))
+            {
+                <text> para «<strong>@Model.Busqueda</strong>»</text>
+            }
+            @if (Model.Tipo is not null)
+            {
+                <text> en @(Model.Tipo == TipoPublicacionForo.Receta ? "Recetas" : "Historias")</text>
+            }
+        </p>
+    }
+
+    @if (Model.TotalItems == 0)
+    {
+        <div class="rib-foro-vacio">
+            @if (Model.HayFiltro)
+            {
+                <p>No se encontraron publicaciones con esos criterios.</p>
+                <a class="btn btn-outline-primary" asp-controller="Foro" asp-action="Index">Ver todo el foro</a>
+            }
+            else
+            {
+                <p>Todavía no hay publicaciones.</p>
+                <a class="btn btn-outline-primary" asp-controller="Foro" asp-action="Crear">Sé la primera persona en compartir</a>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="rib-feed">
+            @foreach (var item in Model.Items)
+            {
+                var p = item.Publicacion;
+                var comunidad = p.Tipo == TipoPublicacionForo.Receta ? "r/Recetas" : "r/Historias";
+                <article class="rib-post">
+                    @if (!string.IsNullOrEmpty(p.ImagenRuta))
+                    {
+                        <a class="rib-post-miniatura" asp-controller="Foro" asp-action="Detalle" asp-route-id="@p.Id">
+                            <img src="~/@p.ImagenRuta" alt="Imagen de @p.Titulo"/>
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="rib-post-miniatura rib-post-miniatura--vacia" aria-hidden="true">
+                            <span>@(p.Tipo == TipoPublicacionForo.Receta ? "🍲" : "📖")</span>
+                        </div>
+                    }
+
+                    <div class="rib-post-cuerpo">
+                        <div class="rib-post-meta">
+                            <span class="rib-post-comunidad">@comunidad</span>
+                            <span class="rib-post-sep">·</span>
+                            <span>Publicado por u/@p.Autor</span>
+                            <span class="rib-post-sep">·</span>
+                            <span>@TiempoRelativo(p.FechaEnvio)</span>
+                        </div>
+
+                        <h2 class="rib-post-titulo">
+                            <a asp-controller="Foro" asp-action="Detalle" asp-route-id="@p.Id">@p.Titulo</a>
+                        </h2>
+
+                        @{
+                            var extracto = p.Contenido.Replace('\n', ' ');
+                            extracto = extracto.Length > 220 ? extracto.Substring(0, 220).TrimEnd() + "…" : extracto;
+                        }
+                        <p class="rib-post-extracto">@extracto</p>
+
+                        <div class="rib-post-pie">
+                            <a class="rib-post-accion" asp-controller="Foro" asp-action="Detalle" asp-route-id="@p.Id">
+                                💬 @item.ComentariosAprobados @(item.ComentariosAprobados == 1 ? "comentario" : "comentarios")
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+
+        @if (Model.TotalPaginas > 1)
+        {
+            <nav class="rib-paginacion" aria-label="Paginación del foro">
+                @if (Model.TienePaginaAnterior)
+                {
+                    <a class="rib-pagina"
+                       asp-controller="Foro" asp-action="Index"
+                       asp-route-q="@Model.Busqueda" asp-route-tipo="@Model.Tipo"
+                       asp-route-orden="@Model.Orden" asp-route-pagina="@(Model.Pagina - 1)">← Anteriores</a>
+                }
+                else
+                {
+                    <span class="rib-pagina rib-pagina--inactiva">← Anteriores</span>
+                }
+
+                <span class="rib-pagina-info">Página @Model.Pagina de @Model.TotalPaginas</span>
+
+                @if (Model.TienePaginaSiguiente)
+                {
+                    <a class="rib-pagina"
+                       asp-controller="Foro" asp-action="Index"
+                       asp-route-q="@Model.Busqueda" asp-route-tipo="@Model.Tipo"
+                       asp-route-orden="@Model.Orden" asp-route-pagina="@(Model.Pagina + 1)">Siguientes →</a>
+                }
+                else
+                {
+                    <span class="rib-pagina rib-pagina--inactiva">Siguientes →</span>
+                }
+            </nav>
+        }
+    }
+</section>
